@@ -4,7 +4,8 @@ int main(){
     int n;
     cout<<"enter no. of days";
     cin>>n;
-    int a[n];
+    int a[n+1];
+    a[n]=-1;
     cout<<"enter no. of visitors for following days";
     for(int i=0;i<n;i++){
         cin>>a[i];
