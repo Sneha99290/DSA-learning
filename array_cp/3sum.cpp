@@ -3,20 +3,36 @@ using namespace std;
 int main(){
     int n;
     cin>>n;
-    int a[n];
+    vector<int> a(n);
     for(int i=0;i<n;i++){
         cin>>a[i];
     }
-    int sum;
-    int i,j,k;
-    for(i=0;i<n-2;i++){
-        for(j=i+1;j<n-1;j++){
-            for(k=i+2;k<n;k++){
-                sum=a[i]+a[j]+a[k];
-                if(sum==0){
-                    cout<<a[i]<<","<<a[j]<<","<<a[k]<<" ";
-                }
+    vector<vector<int>> output;
+    set<vector<int>> s;
+    sort(a.begin(),a.end());
+    for(int i=0;i<n;i++){
+        int l=i+1;
+        int h=n-1;
+        while(l<h){
+            int sum=a[i]+a[l]+a[h];
+            if(sum==0){
+                s.insert({a[i],a[l],a[h]});
+                l++;
+                h--;
+            }
+            else if(sum>0){
+                h--;
+            }
+            else{
+                l++;
             }
         }
     }
+    for(auto i:s){
+        output.push_back(i);
+    }
+    for(int i=0;i<output.size();i++){
+       cout<<output[i];
+    }
+
 }

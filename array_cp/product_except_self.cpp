@@ -7,6 +7,10 @@
 #include<bits/stdc++.h>
 using namespace std;
 
+int leftproduct(){
+    
+}
+
 int main(){
     int n;
     cin>>n;
@@ -15,5 +19,6 @@ int main(){
         cin>>a[i];
     }
     int product[n];
+    int right[n],left[n];
     
 }
