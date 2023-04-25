@@ -15,15 +15,38 @@ int main(){
     int n;
     cin>>n;
     vector<int> a(n);
-    int min;
+    
     for(int i=0;i<n;i++){
         cin>>a[i];
     }
-    for(int i=0;i<n;i++){
-        if(a[i+1]<a[i]){
-            min=a[i+1];
+    // for(int i=0;i<n;i++){
+    //     if(a[i+1]<a[i]){
+    //         min=a[i+1];
+    //         break;
+    //     }
+    // }
+        int l=0;
+        int h=n-1;
+        int min;
+        if(l==h){
+            min=a[l];
+        }
+        while(l<=h){
+            int mid=(l+h)/2;
+            if(l==h){
+            min=a[l];
             break;
         }
-    }
+            if(a[mid]<a[mid-1]&&a[mid]<a[mid+1]){
+                min=a[mid];
+                break;
+            }
+            else if(a[l]>a[h]){
+                l=mid+1;
+            }
+            else{
+                h=mid-1;
+            }
+        }
     cout<<min;
 }

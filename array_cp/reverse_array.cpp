@@ -35,7 +35,7 @@ int main(){
     for(int i=0;i<n;i++){
         cout<<a[i];
     }
-    
+}
     // -------brute force approach------
     // int b[n];
     // int j=0;
@@ -46,4 +46,4 @@ int main(){
     // for(int i=0;i<n;i++){
     //     cout<<b[i];
     // }
-}
+// }

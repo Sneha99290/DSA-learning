@@ -7,10 +7,6 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-int leftproduct(){
-    
-}
-
 int main(){
     int n;
     cin>>n;
@@ -18,7 +14,23 @@ int main(){
     for(int i=0;i<n;i++){
         cin>>a[i];
     }
-    int product[n];
-    int right[n],left[n];
-    
+    vector<int> product(n);
+    vector<int> left(n);
+    vector<int> right(n);
+    left[0]=a[0];
+    right[n-1]=a[n-1];
+    for(int i=1;i<n;i++){
+        left[i]=left[i-1]*a[i];
+    }
+    for(int i=n-2;i>=0;i--){
+        right[i]=right[i+1]*a[i];
+    }
+    product[0]=right[1];
+    product[n-1]=left[n-2];
+    for(int i=1;i<=n-2;i++){
+        product[i]=left[i-1]*right[i+1];
+    }
+    for(int i=0;i<n;i++){
+        cout<<product[i]<<" ";
+    }
 }
